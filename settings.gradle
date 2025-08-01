@@ -1,0 +1,3 @@
+rootProject.name = 'ad'
+
+include 'ad-admin-service'

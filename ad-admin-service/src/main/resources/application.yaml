@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 32
+      minimum-idle: 32
+    url: jdbc:mysql://localhost:3306/ad
+    password: password
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+  application:
+    name: ad-admin-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
