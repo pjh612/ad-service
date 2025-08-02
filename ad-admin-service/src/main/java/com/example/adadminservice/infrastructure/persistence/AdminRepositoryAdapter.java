@@ -1,8 +1,9 @@
-package com.example.adadminservice.infrastructure.persistence.jpa.repository;
+package com.example.adadminservice.infrastructure.persistence;
 
-import com.example.adadminservice.domain.repository.AdminRepository;
 import com.example.adadminservice.domain.model.Admin;
+import com.example.adadminservice.domain.repository.AdminRepository;
 import com.example.adadminservice.infrastructure.persistence.jpa.mapper.AdminMapper;
+import com.example.adadminservice.infrastructure.persistence.jpa.repository.AdminJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
