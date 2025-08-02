@@ -1,7 +1,7 @@
 package com.example.adadminservice.infrastructure.email;
 
 import com.example.adadminservice.application.out.mail.MailSender;
-import com.example.adadminservice.infrastructure.messaging.MessagePublisher;
+import com.example.adadminservice.application.out.messaging.MessagePublisher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

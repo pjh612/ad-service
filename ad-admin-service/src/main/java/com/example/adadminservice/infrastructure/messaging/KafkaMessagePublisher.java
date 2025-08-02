@@ -1,5 +1,6 @@
 package com.example.adadminservice.infrastructure.messaging;
 
+import com.example.adadminservice.application.out.messaging.MessagePublisher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
