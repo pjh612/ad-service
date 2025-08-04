@@ -2,3 +2,4 @@ rootProject.name = 'ad'
 
 include 'ad-admin-service'
 include 'mail-consumer-service'
+include 'ad-service'
