@@ -8,6 +8,7 @@ import com.example.adservice.domain.repository.BidNoticeForAdZoneRepository;
 import com.example.adservice.infrastructure.persistence.jpa.entity.BidNoticeForAdZoneEntity;
 import com.example.adservice.infrastructure.persistence.jpa.repository.BidNoticeForAdZoneJpaRepository;
 import com.example.adservice.infrastructure.persistence.jpa.repository.BidNoticeForAdZoneQueryRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
@@ -18,15 +19,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Component
+@RequiredArgsConstructor
 public class BidNoticeForAdZoneRepositoryAdapter implements BidNoticeForAdZoneRepository {
 
     private final BidNoticeForAdZoneJpaRepository jpaRepository;
     private final BidNoticeForAdZoneQueryRepository queryRepository;
-
-    public BidNoticeForAdZoneRepositoryAdapter(BidNoticeForAdZoneJpaRepository jpaRepository, BidNoticeForAdZoneQueryRepository querydslRepository) {
-        this.jpaRepository = jpaRepository;
-        this.queryRepository = querydslRepository;
-    }
 
     @Override
     public Optional<BidNoticeForAdZone> findById(UUID id) {

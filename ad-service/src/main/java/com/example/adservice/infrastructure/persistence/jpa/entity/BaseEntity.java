@@ -6,6 +6,7 @@ import jakarta.persistence.MappedSuperclass;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -14,9 +15,10 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
 
+@Getter
+@SuperBuilder
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)  // JPA Auditing 활성화
-@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public abstract class BaseEntity {
 
