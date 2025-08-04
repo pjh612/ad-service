@@ -24,9 +24,19 @@ spring:
     redis:
       host: localhost
       port: 6380
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 server:
   port: 8080
 logging:
   level:
     org.hibernate.SQL: debug # logger를 통해 하이버네이트 실행 SQL을 남김
     org.hibernate.orm.jdbc.bind: trace # 쿼리 파라미터 로그 남기기
+client:
+  business:
+    url: https://api.odcloud.kr/api/nts-businessman/v1
+    serviceKey: fKODuVrM3Nu3DvYE3EOP%2B3fpBkVR55tCGNJuKQdetf4sPwtPONNT1yrLGrPH%2BWyzoj2OZ1toTpt8zDWIJGopjg%3D%3D
+secret: adservicetesttestserviceadadservicetesttestserviceadadservicetesttestserviceadadservicetesttestservicead

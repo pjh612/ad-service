@@ -19,5 +19,15 @@ spring:
     redis:
       host: localhost
       port: 6379
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 server:
   port: 8080
+client:
+  business:
+    url: https://api.odcloud.kr/api/nts-businessman/v1
+    serviceKey: ${NTS_SERVICE_KEY}
+secret: adserviceserviceadadserviceserviceadadserviceserviceadadserviceserviceadadserviceservicead
