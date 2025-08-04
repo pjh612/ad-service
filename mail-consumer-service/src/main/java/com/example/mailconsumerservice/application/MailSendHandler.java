@@ -20,4 +20,11 @@ public class MailSendHandler {
 
         emailSender.send(payload.to(), payload.subject(), payload.content());
     }
+
+    @KafkaListener(topics = "template-mail", groupId = "mail-consumer", containerFactory = "kafkaListenerContainerFactory")
+    public void consumeTemplateMail(@Payload MailSendMessage payload) {
+        log.info("Message received: {}", payload);
+
+        emailSender.send(payload.to(), payload.subject(), payload.variables(), payload.templateName());
+    }
 }
