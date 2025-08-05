@@ -39,6 +39,8 @@ public class AdvertiserRepositoryAdapter implements AdvertiserRepository {
                     entity.getPassword(),
                     entity.getName(),
                     entity.getEmail(),
+                    entity.getBusinessNumber(),
+                    entity.getStartAt(),
                     new AuditInfo(entity.getCreatedAt(), entity.getCreatedBy(), entity.getUpdatedAt(), entity.getUpdatedBy())
             );
         }
@@ -50,6 +52,8 @@ public class AdvertiserRepositoryAdapter implements AdvertiserRepository {
                     advertiser.getPassword(),
                     advertiser.getName(),
                     advertiser.getEmail(),
+                    advertiser.getBusinessNumber(),
+                    advertiser.getStartAt(),
                     advertiser.getAuditInfo().getCreatedAt(),
                     advertiser.getAuditInfo().getUpdatedAt(),
                     advertiser.getAuditInfo().getCreatedBy(),

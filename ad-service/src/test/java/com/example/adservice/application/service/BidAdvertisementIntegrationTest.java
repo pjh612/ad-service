@@ -3,11 +3,7 @@ package com.example.adservice.application.service;
 import com.example.adservice.TestClockConfiguration;
 import com.example.adservice.TestRedisConfiguration;
 import com.example.adservice.application.in.dto.BidAdvertisementRequest;
-import com.example.adservice.domain.model.AdZone;
-import com.example.adservice.domain.model.AdZoneState;
-import com.example.adservice.domain.model.Advertiser;
-import com.example.adservice.domain.model.AuditInfo;
-import com.example.adservice.domain.model.BidNoticeForAdZone;
+import com.example.adservice.domain.model.*;
 import com.example.adservice.domain.repository.AdZoneRepository;
 import com.example.adservice.domain.repository.AdvertiserRepository;
 import com.example.adservice.domain.repository.BidNoticeForAdZoneRepository;
@@ -18,10 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.time.Clock;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -66,7 +59,7 @@ public class BidAdvertisementIntegrationTest {
                 "공고제목", "내용", authorId, "관리자", adStartAt, adEndAt, bidStartAt, bidEndAt, 10000L, adZoneId
         );
         BidNoticeForAdZone savedBidNotice = bidNoticeForAdZoneRepository.save(bidNotice);
-        Advertiser advertiser = new Advertiser(advertiserId, "test01", "test", "광고주1", "test@gmail.com", AuditInfo.create(advertiserId.toString()));
+        Advertiser advertiser = new Advertiser(advertiserId, "test01", "test", "광고주1", "test@gmail.com", "1234567890", LocalDate.now(), AuditInfo.create(advertiserId.toString()));
 
         adZoneRepository.save(adZone);
         advertiserRepository.save(advertiser);

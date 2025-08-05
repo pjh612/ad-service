@@ -44,7 +44,7 @@ class BidAdvertisementServiceTest {
 
     @BeforeEach
     void setup() {
-        fixedClock = Clock.fixed(LocalDateTime.of(2025,7,6,14,0,0).atZone(ZoneId.systemDefault()).toInstant(), ZoneId.systemDefault());
+        fixedClock = Clock.fixed(LocalDateTime.of(2025, 7, 6, 14, 0, 0).atZone(ZoneId.systemDefault()).toInstant(), ZoneId.systemDefault());
         this.bidAdvertisementService = new BidAdvertisementService(fixedClock, adZoneRepository, bidNoticeForAdZoneRepository, advertiserRepository, bidForAdZoneRepository);
     }
 
@@ -72,7 +72,7 @@ class BidAdvertisementServiceTest {
         given(bidNoticeForAdZoneRepository.findById(bidNoticeId)).willReturn(Optional.of(bidNotice));
         given(bidNoticeForAdZoneRepository.save(any())).willReturn(bidNotice);
 
-        Advertiser advertiser = new Advertiser(advertiserId, "test", "test", "테스트광고주", "test@gmail.com", AuditInfo.create(advertiserId.toString()));
+        Advertiser advertiser = new Advertiser(advertiserId, "test", "test", "테스트광고주", "test@gmail.com", "1234567890", LocalDate.now(), AuditInfo.create(advertiserId.toString()));
         given(advertiserRepository.findById(advertiserId)).willReturn(Optional.of(advertiser));
 
         BidForAdZone bid = BidForAdZone.create(bidNoticeId, advertiserId, "테스트광고주", bidAmount, Instant.now());

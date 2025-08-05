@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -34,12 +35,20 @@ public class AdvertiserEntity extends BaseEntity {
     @Column(nullable = false, length = 255)
     private String email;
 
-    public AdvertiserEntity(UUID id, String username, String password, String name, String email, Instant createdAt, Instant updatedAt, String createdBy, String updatedBy) {
+    @Column(nullable = false, length = 10)
+    private String businessNumber;
+
+    @Column(nullable = false, length = 8)
+    private LocalDate startAt;
+
+    public AdvertiserEntity(UUID id, String username, String password, String name, String email, String businessNumber, LocalDate startAt, Instant createdAt, Instant updatedAt, String createdBy, String updatedBy) {
         super(createdAt, updatedAt, createdBy, updatedBy);
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
         this.email = email;
+        this.businessNumber = businessNumber;
+        this.startAt = startAt;
     }
 }
