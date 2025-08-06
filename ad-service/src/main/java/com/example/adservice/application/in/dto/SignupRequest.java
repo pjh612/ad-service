@@ -1,6 +1,6 @@
 package com.example.adservice.application.in.dto;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
 
@@ -10,7 +10,7 @@ public record SignupRequest(
         String name,
         String email,
         String businessNumber,
-        @DateTimeFormat(pattern = "yyyyMMdd")
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMdd")
         LocalDate startAt,
         String emailVerificationToken,
         String businessNumberVerificationToken
