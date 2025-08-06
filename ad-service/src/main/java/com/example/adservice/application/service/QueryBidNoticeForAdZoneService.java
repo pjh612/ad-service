@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 public class QueryBidNoticeForAdZoneService implements QueryBidNoticeForAdZoneUseCase {
@@ -31,5 +33,11 @@ public class QueryBidNoticeForAdZoneService implements QueryBidNoticeForAdZoneUs
                 request.minPrice(),
                 request.zoneId()
         );
+    }
+
+    public BidNoticeForAdZoneResponse findById(UUID id) {
+        return bidNoticeForAdZoneRepository.findById(id)
+                .map(BidNoticeForAdZoneResponse::from)
+                .orElseThrow(()-> new RuntimeException("입찰 공고를 찾을 수 없습니다."));
     }
 }
