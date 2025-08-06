@@ -8,5 +8,7 @@ import java.util.UUID;
 public interface AdvertiserRepository {
     Optional<Advertiser> findById(UUID id);
 
+    Optional<Advertiser> findByUsername(String username);
+
     Advertiser save(Advertiser advertiser);
 }

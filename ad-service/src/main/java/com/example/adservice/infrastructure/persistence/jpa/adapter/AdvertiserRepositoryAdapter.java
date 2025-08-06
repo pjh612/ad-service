@@ -25,6 +25,11 @@ public class AdvertiserRepositoryAdapter implements AdvertiserRepository {
     }
 
     @Override
+    public Optional<Advertiser> findByUsername(String username) {
+        return advertiserJpaRepository.findByUsername(username).map(AdvertiserMapper::toDomain);
+    }
+
+    @Override
     public Advertiser save(Advertiser advertiser) {
         AdvertiserEntity entity = AdvertiserMapper.toEntity(advertiser);
         AdvertiserEntity saved = advertiserJpaRepository.save(entity);
