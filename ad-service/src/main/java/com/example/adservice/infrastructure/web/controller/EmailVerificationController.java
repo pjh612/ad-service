@@ -4,6 +4,7 @@ import com.example.adservice.application.in.EmailVerificationUseCase;
 import com.example.adservice.application.in.dto.VerifyEmailResponse;
 import com.example.adservice.application.in.dto.SendEmailVerificationRequest;
 import com.example.adservice.application.in.dto.VerifyEmailRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +18,7 @@ public class EmailVerificationController {
     private final EmailVerificationUseCase emailVerificationUseCase;
 
     @PostMapping("/send-verification")
-    public void sendEmail(@RequestBody SendEmailVerificationRequest request) {
+    public void sendEmail(@Valid @RequestBody SendEmailVerificationRequest request) {
         emailVerificationUseCase.sendEmail(request);
     }
 
