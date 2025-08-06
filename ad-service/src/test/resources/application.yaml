@@ -37,6 +37,6 @@ logging:
     org.hibernate.orm.jdbc.bind: trace # 쿼리 파라미터 로그 남기기
 client:
   business:
-    url: https://api.odcloud.kr/api/nts-businessman/v1
+    url: https://api.odcloud.kr
     serviceKey: fKODuVrM3Nu3DvYE3EOP%2B3fpBkVR55tCGNJuKQdetf4sPwtPONNT1yrLGrPH%2BWyzoj2OZ1toTpt8zDWIJGopjg%3D%3D
 secret: adservicetesttestserviceadadservicetesttestserviceadadservicetesttestserviceadadservicetesttestservicead

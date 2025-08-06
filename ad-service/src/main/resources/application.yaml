@@ -28,6 +28,6 @@ server:
   port: 8080
 client:
   business:
-    url: https://api.odcloud.kr/api/nts-businessman/v1
+    url: https://api.odcloud.kr
     serviceKey: ${NTS_SERVICE_KEY}
 secret: adserviceserviceadadserviceserviceadadserviceserviceadadserviceserviceadadserviceservicead

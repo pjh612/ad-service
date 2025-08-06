@@ -6,9 +6,13 @@ import com.example.adservice.infrastructure.client.dto.BusinessInfoResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -24,18 +28,21 @@ public class ExternalBusinessInfoApiClientAdapter implements ExternalBusinessInf
 
     @Override
     public BusinessInfo getBusinessInfo(String businessNumber, String representativeName, LocalDate startAt) {
-        var requestBody = Map.of(
+        var requestBody = Map.of("businesses", List.of(Map.of(
                 "b_no", businessNumber,
                 "start_dt", startAt.format(DateTimeFormatter.BASIC_ISO_DATE),
                 "p_nm", representativeName
-        );
+        )));
 
+        URI uri = UriComponentsBuilder.fromPath("/api/nts-businessman/v1/validate")
+                .queryParam("serviceKey", serviceKey)
+                .encode(StandardCharsets.UTF_8)
+                .build(true)
+                .toUri();
 
         BusinessInfoResponse response = restClient
                 .post()
-                .uri(it -> it.path("/validate")
-                        .queryParam("serviceKey", serviceKey)
-                        .build())
+                .uri(uri)
 
                 .body(requestBody)
                 .retrieve()
